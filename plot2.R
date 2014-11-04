@@ -15,8 +15,9 @@ power$Date<-as.Date(power$Date,format="%d/%m/%Y")
 sub_power<-subset(power,subset=(Date>="2007-02-01" & Date <= "2007-02-02"))
 
 # plot the graph
-hist(sub_power$Global_active_power,main="Global Active Power",xlab="Global Active Power (kilowatts)",col="red")
+plot(sub_power$dateTime,sub_power$Global_active_power,type="l",ylab="Global Active Power (kilowatts)",xlab="")
+
 
 #copy the graph to a file
-dev.copy(png,file="plot1.png",width=480,height=480)
+dev.copy(png,file="plot2.png",width=480,height=480)
 dev.off()
