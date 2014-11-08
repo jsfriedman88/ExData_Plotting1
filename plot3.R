@@ -15,7 +15,7 @@ power$Date<-as.Date(power$Date,format="%d/%m/%Y")
 sub_power<-subset(power,subset=(Date>="2007-02-01" & Date <= "2007-02-02"))
 
 # plot the first sub metering
-plot(sub_power$dateTime,sub_power$Sub_metering_1,type="l",col="black",ylab="Global Active Power (kilowatts)",xlab="")
+plot(sub_power$dateTime,sub_power$Sub_metering_1,type="l",col="black",ylab="Energy sub metering",xlab="")
 
 #add plot lines for the second and third sub metering
 lines(sub_power$dateTime,sub_power$Sub_metering_2,col="red")
