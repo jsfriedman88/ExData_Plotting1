@@ -14,6 +14,9 @@ power$Date<-as.Date(power$Date,format="%d/%m/%Y")
 # filter data for the two days to be graphed
 sub_power<-subset(power,subset=(Date>="2007-02-01" & Date <= "2007-02-02"))
 
+#create the png device
+png(filename = "plot4.png", width = 480, height = 480, units = "px", bg = "transparent")
+
 # set up for 2 rows and 2 cols of graphs.  Populate graphs by row
 par(mfrow = c(2,2))
 
@@ -28,6 +31,5 @@ plot(sub_power$dateTime,sub_power$Sub_metering_1,type="l",col="black",ylab="Ener
         legend("topright", bty="n",col = c("black", "red", "blue"), c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),lwd=1)
 plot(sub_power$dateTime,sub_power$Global_reactive_power,type="l",ylab="Global_reactive_power",xlab="datetime")    
 
-#copy the graph to a file
-dev.copy(png,file="plot4.png",width=480,height=480,units="px",bg="transparent")
+
 dev.off()
