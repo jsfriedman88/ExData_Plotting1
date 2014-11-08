@@ -14,6 +14,9 @@ power$Date<-as.Date(power$Date,format="%d/%m/%Y")
 # filter data for the two days to be graphed
 sub_power<-subset(power,subset=(Date>="2007-02-01" & Date <= "2007-02-02"))
 
+#create the png device
+png(filename = "plot3.png", width = 480, height = 480, units = "px", bg = "transparent")
+
 # plot the first sub metering
 plot(sub_power$dateTime,sub_power$Sub_metering_1,type="l",col="black",ylab="Energy sub metering",xlab="")
 
@@ -24,6 +27,4 @@ lines(sub_power$dateTime,sub_power$Sub_metering_3,col="blue")
 # create the legend
 legend("topright", col = c("black", "red", "blue"), c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),lwd=1)
        
-#copy the graph to a file
-dev.copy(png,file="plot3.png",width=480,height=480)
 dev.off()
